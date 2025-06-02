@@ -48,7 +48,8 @@ export default function App() {
     <div className={css.app}>
       <Toaster position="top-center" reverseOrder={false} />
       <SearchBar onSubmit={searchMovie} />
-      {isError && error instanceof Error && <ErrorMessage error={error} />}
+      {isError && error instanceof Error && <ErrorMessage error={error as Error} />}
+
       {search !== '' && isPending && <Loader />}
       {isSuccess && data.total_pages > 1 && (
         <ReactPaginate
